@@ -1,0 +1,26 @@
+<!DOCTYPE>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatable" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Today Date</title>
+</head>
+<body>
+	<script>
+		var today = new Date();
+		var dd = today.getDate();
+		var mm = today.getMonth()+1;
+		var yy = today.getFullYear();
+		
+		if (dd < 10)
+			dd = "0"+dd;
+		
+		if (mm < 10)
+			mm = "0"+mm;
+		
+		var date1 = dd+" "+mm+" "+yy;
+		alert (date1);
+	</script>
+</body>
+</html>
