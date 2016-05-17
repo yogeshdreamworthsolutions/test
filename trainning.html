@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html  ng-app = "myModule">
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<script>
+	/*var myApp = angular.module("myModule", []);
+	myApp.controller("myController", function ($scope){
+	
+	var employee = {
+		firstName: "Yogesh",
+		lastName: "Zunjarrao",
+		gender: "Male"
+	};
+		$scope.message = "First angular programe";
+		
+		$scope.emp = employee;
+	});*/
+	
+	var myApp = angular
+					.module("myModule",[])
+					.controller("myController", function ($scope){
+						var employee ={firstName: "Yogesh",lastName: "Zunjarrao",gender: "Male",img: "images/Privacy.jpg"};
+						
+						var employees = [
+						{firstName: "Yogesh",lastName: "Zunjarrao",gender: "Male",img: "images/Privacy.jpg"},
+						{firstName: "Binoy",lastName: "John",gender: "Male",img: "images/Privacy.jpg"},
+						{firstName: "Mukesh",lastName: "Singh",gender: "Male",img: "images/Privacy.jpg"}
+						];
+						
+						
+						
+						$scope.emp = employee;
+						$scope.allEmp = employees;
+						$scope.message = "First angular programe";
+						
+					});
+</script>
+<body  ng-controller="myController">
+<h1>I tutorial : Basic</h1>
+<div>
+	<h5>Addition</h5>
+	10 + 20 = {{ 10 + 20}}
+</div>
+
+<div>
+	<h5>Boolean</h5>
+	{{ 1 == 2}}
+</div>
+
+<div>
+	<h5>Object</h5>
+	{{ {name:"Yogesh", age:"30"}.name }}
+</div>
+
+
+<div>
+	<h5>Array</h5>
+	{{ ['yogesh', 'Binoy'] [1]}}
+</div>
+
+<h1>II tutorial : Module-controller</h1>
+<div>
+	{{ message }}
+	
+</div>
+
+<h1>III tutorial : object</h1>
+<div>
+	{{ emp.firstName }}
+</div>
+<div>
+	{{ emp.lastName }}
+</div>
+<div>
+	{{ emp.gender }}
+</div>
+
+<h1>IV tutorial : Img Error</h1>
+<div>
+	<img src="{{ emp.img }}" width="300"><br><br>
+
+
+<img ng-src="{{ emp.img }}" alt="{{ emp.firstName + ' test' }}" width="300">
+	
+</div>
+<h1>V tutorial : Two way data binding</h1>
+<div>
+	<table>
+	<tr>
+		<td>First Name: </td>
+		<td><input type="text" ng-model="emp.firstName"></td>
+		</tr>
+		<tr>
+		<td>Last Name: </td>
+		<td><input type="text" ng-model="emp.lastName"></td>
+		</tr>
+	</table><br>
+<br>
+
+<table>
+	<tr>
+		<td>First Name: </td>
+		<td> {{ emp.firstName }} </td>
+		</tr>
+		<tr>
+		<td>Last Name: </td>
+		<td> {{ emp.lastName }} </td>
+		</tr>
+	</table>
+</div>
+
+<h1>VI tutorial : ng repeat</h1>
+<table>
+	<tr ng-repeat="emp in allEmp">
+		<td>{{ emp.firstName | uppercase }}</td>
+		<td>{{ emp.lastName | uppercase }}</td>
+		<td>{{ emp.gender | uppercase }}</td>
+	</tr>
+</table>
+</body>
+</html>
